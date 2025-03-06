@@ -56,6 +56,6 @@ public:
 int main()
 {
     Car car("some_brand", "some_model", 2001, 1200);
-    //car.display_car(car);
+    car.display_car(car);
 }
 
