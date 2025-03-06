@@ -20,9 +20,9 @@ public:
         _mileage = mileage;
     };
 
-    unsigned int get_mileage() { return _mileage; }
+    unsigned int get_mileage() const { return _mileage; }
 
-    unsigned short get_age(short current_year) { return current_year > _year ? current_year - _year : 0; }
+    unsigned short get_age(short current_year) const { return current_year > _year ? current_year - _year : 0; }
 
     void set_mileage(const int mileage){ _mileage = mileage > _mileage ? mileage : _mileage; }
 
