@@ -1,18 +1,3 @@
-﻿//Требования:
-//Закрытые(private) поля :
-//    brand – марка автомобиля.
-//    model – модель автомобиля.
-//    year – год выпуска.
-//    mileage – пробег.
-//    Открытые(public) методы :
-//    Конструктор : принимает значения марки, модели, года выпуска и пробега.
-//    Default Конструктор : инициализирует данные старндартные
-//    Геттеры :
-//getMileage() – возвращает пробег.
-//Сеттер :
-//    setMileage(newMileage) – устанавливает пробег(нельзя уменьшать пробег).
-//    Метод drive(km) : увеличивает пробег на переданное количество километров.
-//    Метод getAge(currentYear) : возвращает возраст автомобиля.
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
@@ -37,25 +22,28 @@ public:
 
     unsigned int get_mileage() { return _mileage; }
 
-    unsigned short get_age(unsigned short current_year) { return current_year > _year ? current_year - _year : 0; }
+    unsigned short get_age(short current_year) { return current_year > _year ? current_year - _year : 0; }
 
-    void set_mileage(const unsigned int mileage){ _mileage = mileage > _mileage ? mileage : _mileage; }
+    void set_mileage(const int mileage){ _mileage = mileage > _mileage ? mileage : _mileage; }
 
-    void drive(const unsigned int km) { _mileage += km; }
-
-    //void display_car(const Car& car)
-    //{
-    //    std::cout << "Brand: " << _brand << "\n";
-    //    std::cout << "Model: " << _model << "\n";
-    //    std::cout << "Year: " << _year << "\n";
-    //    std::cout << "Mileage: " << _mileage << "\n";
-    //}
-
+    void drive(const int km) 
+    { 
+        int a = km;
+        _mileage = km > 0 ? _mileage + km : _mileage; 
+    }
 };
 
 int main()
 {
     Car car("some_brand", "some_model", 2001, 1200);
-    car.display_car(car);
+
+    car.drive(300);
+    std::cout << car.get_mileage() << "\n";
+
+    car.set_mileage(1700);
+    std::cout << car.get_mileage() << "\n";
+ 
+    std::cout<< car.get_age(2025);
+    return 0;
 }
 
